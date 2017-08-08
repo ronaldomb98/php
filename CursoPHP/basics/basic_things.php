@@ -117,6 +117,21 @@
         var_dump($array1 == $array2);
 
         ?>
+    </div>
+    <h4>Operador ??</h4>
+    <div>
+        <?php
+        echo "En caso de tener un valor nulo, le podemos asignar un nuevo valor <br>";
+        $a = null;
+        if (!$a) {
+          echo "Tenemos que";
+          var_dump($a);
+        }
+        $a = $a ?? 'Wenas a todos';
+        echo "<br> He cambiado el valor de la variable a y ahora es:  $a";
+
+        ?>
+    </div>
 
 </body>
 </html>
