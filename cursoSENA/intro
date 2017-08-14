@@ -53,7 +53,48 @@ usar comando Via composer create-project
 testear el proyecto
 	entrar a la carpeta que crea
 	php artisan serve -> comando para iniciar el proyecto
+
+Servidor
+
+	Nginx: Es mucho mas rapido que Apache
 	
 
-		
+Extensiones:
+	Wappalyzer
+
+Proveedores
+	Imagina Colombia
+	Dongy		
+	
+	Go Day -> No es recomendable si solo 
+
+Modelo -> Coge una tabla de la base de datos y ponerla en codigo
+Vista -> El espacio donde se renderiza la información.
+Controlador -> 
+
+
+Git - Software Nube
+	bitbucket.org
+
+IDE
+	netbeans (IDE)
+
+Laravel:
+	controladores: app/http/controllers
+	
+	bootstrap -> Maneja la cache del framework
+
+Tareas: 
+-Leer sobre ORM
+	MAILCHIMP
+
+
+TESTEADOR:
+	Test Page Google
+
+Errores:
+	storage/logs/laravel.logs
+
+descargar vendor:
+	composer update
 
