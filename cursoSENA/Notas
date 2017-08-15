@@ -45,5 +45,39 @@ Actualizar base de datos
 Ejecutar Seeder
 	Almacena datos en la base de datos
 	comando: php artisan db:seed --class=ClientSeeder
-	
-	
+
+
+APP_NAME=RonGym -> Nombre de mi aplicacion
+APP_ENV=local -> produccion cuando se lance
+APP_KEY=base64:lE0Ix2shluBDoJPs+yxwEGfUr7cz22EY8M7l3GBupxA= -> Debe generarse cada vez que este en mi pc (git)
+APP_DEBUG=true -> false cuando se lance a produccion
+APP_LOG_LEVEL=debug -> 
+APP_URL=http://localhost:8000
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306 -> cuando lo instale este es el que viene por defecto
+DB_DATABASE=homestead
+DB_USERNAME=homestead
+DB_PASSWORD=secret
+
+BROADCAST_DRIVER=log
+CACHE_DRIVER=file
+SESSION_DRIVER=file
+QUEUE_DRIVER=sync
+
+REDIS_HOST=127.0.0.1
+REDIS_PASSWORD=null
+REDIS_PORT=6379
+
+MAIL_DRIVER=smtp
+MAIL_HOST=smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=null
+MAIL_PASSWORD=null
+MAIL_ENCRYPTION=null
+
+PUSHER_APP_ID=
+PUSHER_APP_KEY=
+PUSHER_APP_SECRET=
+
