@@ -1,0 +1,6 @@
+Models.txt
+php artisan krlove:generate:model Estado --output-path=Models --namespace=App\Models --table-name=estado
+php artisan krlove:generate:model Rol --output-path=Models --namespace=App\Models --table-name=rol
+php artisan krlove:generate:model Item --output-path=Models --namespace=App\Models --table-name=item
+php artisan krlove:generate:model UsersRol --output-path=Models --namespace=App\Models --table-name=users_rol
+php artisan krlove:generate:model RolItem --output-path=Models --namespace=App\Models --table-name=rol_item

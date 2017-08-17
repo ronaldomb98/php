@@ -1,0 +1,100 @@
+Horario:
+	Lunes a Miercoles
+	6:15 a 9 pm
+
+Lenguage:
+	PHP
+
+Framework:
+	Laravel 5.4
+
+Objetivo:
+	Web
+
+funcionario
+	Nduthr29*Ecali20%Mbog16=
+
+PROXY
+	172.29.27.3
+
+PORT
+	80
+
+Pros Laravel:
+	- Me permite crear Roles
+
+Contacto:
+	giophonex@misena.edu.co
+	3162456035
+	Giovanny Gonzalez
+
+Page:
+	laravel.com
+	-> Documentacion link
+		Instalar 5.4
+		PHP 7
+		MariaDB
+		Composer
+		<- 5.2 ha cambiado
+		
+		
+		sublimetext 3 -> Codigo editor
+		heidisql -> para manejar el motor de base de datos  - no linux
+		DBeaver -> para linux
+	
+
+Inicio de curso hpta!!: 
+- Todo se va a manejar desde htdocs
+- linux /var/www/html
+
+usar comando Via composer create-project
+	cambiar nombre blog por "Name software"
+		no mayusculas, caracteres especiales, no numeros
+testear el proyecto
+	entrar a la carpeta que crea
+	php artisan serve -> comando para iniciar el proyecto
+
+Servidor
+
+	Nginx: Es mucho mas rapido que Apache
+	
+
+Extensiones:
+	Wappalyzer
+
+Proveedores
+	Imagina Colombia
+	Dongy		
+	
+	Go Day -> No es recomendable si solo 
+
+Modelo -> Coge una tabla de la base de datos y ponerla en codigo
+Vista -> El espacio donde se renderiza la información.
+Controlador -> 
+
+
+Git - Software Nube
+	bitbucket.org
+
+IDE
+	netbeans (IDE)
+
+Laravel:
+	controladores: app/http/controllers
+	
+	bootstrap -> Maneja la cache del framework
+
+Tareas: 
+-Leer sobre ORM
+	MAILCHIMP
+
+
+TESTEADOR:
+	Test Page Google
+
+Errores:
+	storage/logs/laravel.logs
+
+descargar vendor:
+	composer update
+

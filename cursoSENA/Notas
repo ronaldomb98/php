@@ -1,0 +1,83 @@
+php artisan make:model NameTable -mc
+
+	-mc es para que cree la migracion y el controlador
+
+php artisan make:seeder  nameSeeder 
+	
+	para crear los archivos semilla
+
+php artisan migrate:refresh --seed
+
+	previo tuve que haber creado la base de datos
+	lo que hace es crear todas las tablas y las respectivas seed
+
+php artisan route:list 
+
+	para listar todas las rutas del programa
+
+php artisan make:request ProductRequest
+	
+	crea un request para los formularios y hacer campos obligatorios
+
+Procesos para crear una tabla desde 0
+
+Crear el modelo:
+	crea un archivo y alli se le agregan los campos en un arreglo
+	comando: php artisan make:model Client
+
+Crear una migración con un nombre
+	Es aqui donde se le agregan los cambios a las tablas
+	ademas de los cambios se le tiene que agregar tipos de datos
+	comando: php artisan make:migration Client
+
+Crear controlador 
+	Se hace normalmente para controlar los datos y la respectiva vista
+	comando: php artisan make:controller ClientController
+
+Crear Seeder
+	Archivo que me permite agregarle los datos para hacer pruebas locales
+	los datos creados en la bd son falsos y aleatorios
+	comando: php artisan make:seeder ClientSeeder
+
+Actualizar base de datos
+	comando: php artisan migrate:refresh
+
+Ejecutar Seeder
+	Almacena datos en la base de datos
+	comando: php artisan db:seed --class=ClientSeeder
+
+
+APP_NAME=RonGym -> Nombre de mi aplicacion
+APP_ENV=local -> produccion cuando se lance
+APP_KEY=base64:lE0Ix2shluBDoJPs+yxwEGfUr7cz22EY8M7l3GBupxA= -> Debe generarse cada vez que este en mi pc (git)
+APP_DEBUG=true -> false cuando se lance a produccion
+APP_LOG_LEVEL=debug -> 
+APP_URL=http://localhost:8000
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306 -> cuando lo instale este es el que viene por defecto
+DB_DATABASE=homestead
+DB_USERNAME=homestead
+DB_PASSWORD=secret
+
+BROADCAST_DRIVER=log
+CACHE_DRIVER=file
+SESSION_DRIVER=file
+QUEUE_DRIVER=sync
+
+REDIS_HOST=127.0.0.1
+REDIS_PASSWORD=null
+REDIS_PORT=6379
+
+MAIL_DRIVER=smtp
+MAIL_HOST=smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=null
+MAIL_PASSWORD=null
+MAIL_ENCRYPTION=null
+
+PUSHER_APP_ID=
+PUSHER_APP_KEY=
+PUSHER_APP_SECRET=
+
