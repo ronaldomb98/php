@@ -1,0 +1,122 @@
+$('.BtnAjax').click(function(event) {
+	
+	$('.msg-error').addClass('hidden');
+	$(this).css('pointer-events', 'none');
+	var form = $(this).data('form');
+
+	$.ajax({
+		url: $(this).data('ruta'),
+		type: $(this).data('metodo'),		
+		data: $('#'+form).serialize()			
+	})
+	.done(function(datos) {
+		
+		$('.btn').css('pointer-events', 'visible');
+		
+		if(datos.error){
+			showError(datos.msj);
+		}else{
+			$('#'+form)[0].reset();
+			outAjax(datos);
+		}
+
+	})
+	.fail(function(datos) {
+		console.log("error: "+datos);
+	});
+	
+});
+
+function showError(errors){
+	$.each(errors,function(name, val) {							
+		$('#err_'+name).html('<b>'+val[0]+'</b>');
+		$('#err_'+name).removeClass('hidden');
+	});
+}
+
+function outAjax(d){
+	if (d.out=='redirect'){
+		document.location = d.route;							
+	}
+	else if (d.out=='reload'){
+		document.location.reload();
+	}
+	else if (d.out=='alert'){
+		bootbox.alert({title:d.title, message:d.html});
+	}
+}
+
+function buttonsTable(show,edit,deleted,editView=false){	
+	btn = '<div class="hidden-sm hidden-xs action-buttons">';
+	if (show!=''){
+		btnShow="onclick='modal(\""+show+"\")'";
+		btn += "<a class='blue' "+btnShow+" href='#'>";
+    	btn += '<i class="ace-icon fa fa-search-plus bigger-130"></i></a>&nbsp;&nbsp;';
+	}	
+	if (edit!=''){
+		if (editView){
+			btnEdit="onclick='view(\""+edit+"\")'";
+		}else{
+			btnEdit="onclick='modal(\""+edit+"\")'";
+		}
+		btn += '<a class="green" '+btnEdit+' href="#">';
+    	btn += '<i class="ace-icon fa fa-pencil bigger-130"></i></a>&nbsp;&nbsp;';
+	}    
+    if (deleted!=''){
+    	btnDelete="onclick='destroy(\""+deleted+"\")'";
+    	btn += '<a class="red" '+btnDelete+' href="#">';
+    	btn += '<i class="ace-icon fa fa-trash-o bigger-130"></i></a>';
+    }   
+    btn += '</div><div class="hidden-md hidden-lg"><div class="inline pos-rel">';
+    btn += '<button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown" data-position="auto">';
+    btn += '<i class="ace-icon fa fa-caret-down icon-only bigger-120"></i></button>';
+    btn += '<ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">';
+    if (show!=''){
+    	btn += '<li><a href="#" class="tooltip-info" data-rel="tooltip" title="View" '+btnShow+'>';
+    	btn += '<span class="blue"><i class="ace-icon fa fa-search-plus bigger-120"></i></span></a></li>';
+	}	
+	if (edit!=''){
+		btn += '<li><a href="#" class="tooltip-success" data-rel="tooltip" title="Edit" '+btnEdit+'>';
+    	btn += '<span class="green"><i class="ace-icon fa fa-pencil-square-o bigger-120"></i></span></a></li>';
+	}    
+    if (deleted!=''){
+    	btn += '<li><a href="#" class="tooltip-error" data-rel="tooltip" title="Delete" '+btnDelete+'>';
+    	btn += '<span class="red"><i class="ace-icon fa fa-trash-o bigger-120"></i></span></a></li>';
+    }
+    btn += '</ul></div></div>';
+    return btn;    
+}
+
+function view(url){
+	window.location.replace(url);
+}
+
+function modal(route){
+	$.ajax({url:route,type:'GET'}).done(function(data) {
+		if(data.size!=undefined){size=data.size}else{size='medium'}		
+		modalAlert = bootbox.alert({
+                    title:data.title, 
+                    message:data.html,
+                    size:size
+                }); //Size: large, small		
+	}).fail(function(data){console.log(data);});
+}
+
+function destroy(route){
+	bootbox.confirm({
+		title:'Confirmación',
+	    message: '¿Está seguro de eliminar el registro?',
+	    buttons: {
+	        confirm: {label: 'Si, seguro.',className: 'btn-danger'},
+	        cancel: {label: 'No',className: 'btn-default'}
+	    },
+	    callback: function (result) {
+	    	if (result){
+	    		token = {_token:window.Laravel.csrfToken};
+				$.ajax({url:route,type:'DELETE',data:token}).done(function(data) {		
+					outAjax(data);
+				}).fail(function(data){console.log(data);});
+	    	}	        
+	    }
+	});	
+}
