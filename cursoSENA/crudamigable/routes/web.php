@@ -10,7 +10,15 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Student;
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('students', 'StudentController');
+
+Route::get('/inicio/{id?}', 'PruebaController@index');
+
+//Route::get('/prueba', '');
+Route::resource('hobbies', 'PostController');

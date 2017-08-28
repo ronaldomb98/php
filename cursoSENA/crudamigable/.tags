@@ -1,0 +1,3 @@
+CreatePostsTable	/opt/lampp/htdocs/php/php/cursoSENA/crudamigable/database/migrations/2017_08_27_202308_create_posts_table.php	/^class CreatePostsTable extends Migration$/;"	class	line:7
+up	/opt/lampp/htdocs/php/php/cursoSENA/crudamigable/database/migrations/2017_08_27_202308_create_posts_table.php	/^    public function up()$/;"	function	line:14
+down	/opt/lampp/htdocs/php/php/cursoSENA/crudamigable/database/migrations/2017_08_27_202308_create_posts_table.php	/^    public function down()$/;"	function	line:27
