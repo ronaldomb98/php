@@ -1,0 +1,7 @@
+nombre de usuario de ftp: php@giovannygonzalez.com
+servidor ftp: ftp
+
+pass: senaphp2017
+puerto: 21
+
+Se sube con vendor y todo
