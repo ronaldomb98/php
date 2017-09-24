@@ -27,14 +27,14 @@ $('#BtnUsuario').click(function(event) {
  * @return {[json]} [Con d.out se indica la opción del retorno del ajax, allí se pueden agregar más opciones GENERICAS]
  */
 $(document).on('click', ".btnAjax", function () {	
-
+	
 	$('.msg-error').addClass('hidden');
 	$(this).css('pointer-events', 'none');
 	
 	idForm = $(this).data('form');
 	route = $('#'+idForm).data('route');
 	method = $('#'+idForm).data('method');
-	
+	console.log($('#'+idForm).serialize());
 	$.ajax({
 			url: route,
 			type: method,
@@ -43,9 +43,10 @@ $(document).on('click', ".btnAjax", function () {
 		.done(function(d){
 
 			$('.btnAjax').css('pointer-events', 'visible');
-			
+			console.log(d);
 			if (d.status){
 				$('#'+idForm)[0].reset()
+				console.log(d);
 				outAjax(d);
 			}else{
 				showError(d.errors);
@@ -151,3 +152,43 @@ function destroy(route){
 	    }
 	});	
 }
+
+$(document).ready(function() {
+	$.ajax({
+		url: 'http://localhost:8000/item/routes',
+		type: 'GET'
+	})
+	.done(function(rta) {
+		console.log('success');
+		console.log(rta);
+		
+		
+	})
+	.fail(function(err) {
+		console.log("error");
+		console.log(err.responseText);
+	})
+	.always(function() {
+		console.log("complete");
+	});
+
+
+	$.ajax({
+		url: 'http://localhost:8000/estado/all',
+		type: 'GET'
+	})
+	.done(function(rta) {
+		console.log(rta);
+		rta.forEach(function(item) {
+			$("#estado_id").append('<option value="'+item.id+'">'+item.nombre+'</option>');
+		}, this);
+	})
+	.fail(function() {
+		console.log("error");
+	})
+	.always(function() {
+		console.log("complete");
+	});
+
+	
+});
