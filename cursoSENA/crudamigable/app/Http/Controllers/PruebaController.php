@@ -14,7 +14,9 @@ class PruebaController extends Controller
     public function index($id=null)
     {
         //
-        
+        $flag = true;
+        $counter = 0;
+
         $datos = [
             0 => [
                 'id' => 1,
@@ -22,7 +24,7 @@ class PruebaController extends Controller
                 'surname' => 'Mojica Barrios',
                 'years_old' => 19,
                 'friendly' => true
-                
+
             ],
             1 => [
                 'id' => 2,
@@ -30,7 +32,7 @@ class PruebaController extends Controller
                 'surname' => 'Rodrigues',
                 'years_old' => 22,
                 'friendly' => true
-                
+
             ],
             2 => [
                 'id' => 3,
@@ -38,7 +40,7 @@ class PruebaController extends Controller
                 'surname' => 'Merciales',
                 'years_old' => 9,
                 'friendly' => false
-                
+
             ],
             3 => [
                 'id' => 4,
@@ -46,11 +48,35 @@ class PruebaController extends Controller
                 'surname' => 'Mojica Barrios',
                 'years_old' => 19,
                 'friendly' => true
-                
+
             ]
         ];
-        
-        return view('inicio', compact('datos'));
+
+        $documentType = [
+          [
+            'value' => 0,
+            'name' => 'Tarjeta de Identidad'
+          ],
+          [
+            'value' => 1,
+            'name' => 'Cédula de Ciudadanía'
+          ],
+          [
+            'value' => 2,
+            'name' => 'Cédula de Extranjeria'
+          ],
+          [
+            'value' => 3,
+            'name' => 'Difución'
+          ],
+          [
+            'value' => 4,
+            'name' => 'Registro Civil'
+          ]
+
+        ];
+
+        return view('inicio', compact('datos', 'flag', 'counter', 'documentType'));
     }
 
     /**

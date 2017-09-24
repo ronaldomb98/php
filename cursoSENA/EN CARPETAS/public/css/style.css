@@ -1,0 +1,12 @@
+.msg-error{	
+    display: block;
+    margin-top: 5px;
+    padding: 5px;
+    color: #737373;
+    background-color: #f2dede;
+}
+@media screen and (max-width: 480px){
+	.hidden-480{
+		display: none;
+	}
+}

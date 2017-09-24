@@ -12,7 +12,7 @@
         <!-- Styles -->
     </head>
     <body>
-    
+
     <div class="row"></div>
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
@@ -28,7 +28,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    CRUD Sencillo 
+                    CRUD Sencillo
                 </div>
 
                 <div class="links">
